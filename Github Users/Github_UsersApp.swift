@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Github_UsersApp: App {
+    // MARK: - Dependency Injection Container
+    private let container = DIContainer.shared
+    
     var body: some Scene {
         WindowGroup {
-            RepositoryListView()
+            UserListView(vm: container.makeVM())
         }
     }
 }
